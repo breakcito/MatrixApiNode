@@ -1,6 +1,6 @@
-import { parseStatsRequest } from "../dto/matrix";
-import { validateMatrix } from "../utils/validate";
-import { calculateStats } from "../utils/stats";
+import { parseStatsRequest } from "../dto/matrix.js";
+import { validateMatrix } from "../utils/validate.js";
+import { calculateStats } from "../utils/stats.js";
 
 export function ProcessStats(req, res) {
   // validar formato

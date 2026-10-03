@@ -1,6 +1,6 @@
-// valida lel payload recibido
+// valida el payload recibido
 export function parseStatsRequest(body) {
-  if (!body || typeof body !== "object") {
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
     return {
       valid: false,
       error: "El cuerpo de la petición debe ser un objeto JSON",
@@ -10,7 +10,7 @@ export function parseStatsRequest(body) {
   const { rotated, q, r } = body;
 
   const isMatrix = (m) =>
-    Array.isArray(m) && m.length > 0 && Array.isArray(m[0]);
+    Array.isArray(m) && m.length > 0 && Array.isArray(m[0]) && m[0].length > 0;
 
   if (!isMatrix(rotated) || !isMatrix(q) || !isMatrix(r)) {
     return {
